@@ -1,0 +1,25 @@
+Radarsys1：Target移动控制；Radar检测
+Radarsys2：Radar控制
+
+1. 基本描述：
+---------------Sys1：
+Target->pub
+Radar->pub
+Radar->sub
+
+Target->Reg
+Radar->Reg
+
+-------------- Sys2:
+Target->sub
+Radar->pub
+Radar->sub
+
+Radar->Reg
+
+2. 运行结果
+Radar互相订购，可注册实例、discover；
+Aviat数据由Sys1提供，Sys2接收，可注册、discover；
+
+Sys1可持续运行，Radar_1/2、Aviat更新值reflect给Sys2
+Sys2可首先短暂进入loop，但之后一直被Sys1的reflect打断进程
